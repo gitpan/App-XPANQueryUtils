@@ -1,0 +1,89 @@
+#!/usr/bin/env perl
+
+use 5.010;
+use strict;
+use warnings;
+
+use Perinci::CmdLine 1.04;
+
+our $DATE = '2014-06-06'; # DATE
+our $VERSION = '0.01'; # VERSION
+
+Perinci::CmdLine->new(url => "/XPAN/Query/list_xpan_dists")->run;
+
+1;
+#ABSTRACT: List {CPAN,MiniCPAN,DarkPAN} distributions
+#PODNAME: list-xpan-dists
+
+__END__
+
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+list-xpan-dists - List {CPAN,MiniCPAN,DarkPAN} distributions
+
+=head1 VERSION
+
+This document describes version 0.01 of list-xpan-dists (from Perl distribution App-XPANQueryUtils), released on 2014-06-06.
+
+=head1 SYNOPSIS
+
+List all distributions:
+
+ % list-xpan-dists /cpan
+
+Grep by distribution name, return detailed record:
+
+ % list-xpan-dists /cpan task-belike-sharyanto --detail
+ .-----------------------------------------------------------------------------------------------------------------.
+ | author      file                                                name                                    version |
+ |                                                                                                                 |
+ | SHARYANTO   Task-BeLike-SHARYANTO-Favorited-0.05.tar.gz         Task-BeLike-SHARYANTO-Favorited            0.05 |
+ | SHARYANTO   Task-BeLike-SHARYANTO-Devel-0.06.tar.gz             Task-BeLike-SHARYANTO-Devel                0.06 |
+ | SHARYANTO   Task-BeLike-SHARYANTO-Spec-0.03.tar.gz              Task-BeLike-SHARYANTO-Spec                 0.03 |
+ | SHARYANTO   Task-BeLike-SHARYANTO-Patches-0.06.tar.gz           Task-BeLike-SHARYANTO-Patches              0.06 |
+ | SHARYANTO   Task-BeLike-SHARYANTO-Apps-0.12.tar.gz              Task-BeLike-SHARYANTO-Apps                 0.12 |
+ | SHARYANTO   Task-BeLike-SHARYANTO-Authored-0.20.tar.gz          Task-BeLike-SHARYANTO-Authored             0.20 |
+ | SHARYANTO   Task-BeLike-SHARYANTO-Noted-0.03.tar.gz             Task-BeLike-SHARYANTO-Noted                0.03 |
+ | SHARYANTO   Task-BeLike-SHARYANTO-AutomatedUpdate-0.01.tar.gz   Task-BeLike-SHARYANTO-AutomatedUpdate      0.01 |
+ `-----------------------------------------------------------------------------------------------------------------'
+
+Filter by author, return JSON:
+
+ % list-xpan-dists /cpan --author sharyanto --json
+
+Show all available options:
+
+ % list-xpan-dists --help
+
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/App-XPANQueryUtils>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-App-XPANQueryUtils>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website L<https://rt.cpan.org/Public/Dist/Display.html?Name=App-XPANQueryUtils>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
+=head1 AUTHOR
+
+Steven Haryanto <stevenharyanto@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2014 by Steven Haryanto.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
