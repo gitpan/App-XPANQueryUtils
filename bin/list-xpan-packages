@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!perl
 
 use 5.010;
 use strict;
@@ -6,8 +6,8 @@ use warnings;
 
 use Perinci::CmdLine 1.04;
 
-our $DATE = '2014-06-06'; # DATE
-our $VERSION = '0.01'; # VERSION
+our $DATE = '2014-07-02'; # DATE
+our $VERSION = '0.02'; # VERSION
 
 Perinci::CmdLine->new(url => "/XPAN/Query/list_xpan_packages")->run;
 
@@ -27,7 +27,7 @@ list-xpan-packages - List {CPAN,MiniCPAN,DarkPAN} packages
 
 =head1 VERSION
 
-This document describes version 0.01 of list-xpan-packages (from Perl distribution App-XPANQueryUtils), released on 2014-06-06.
+This document describes version 0.02 of list-xpan-packages (from Perl distribution App-XPANQueryUtils), released on 2014-07-02.
 
 =head1 SYNOPSIS
 
@@ -56,6 +56,10 @@ Search by author and dist, show detailed records:
 Show all available options:
 
  % list-xpan-packages --help
+
+=head1 SEE ALSO
+
+L<XPAN::Query>
 
 =head1 HOMEPAGE
 

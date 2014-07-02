@@ -4,8 +4,8 @@ use 5.010001;
 use strict;
 use warnings;
 
-our $VERSION = '0.01'; # VERSION
-our $DATE = '2014-06-06'; # DATE
+our $VERSION = '0.02'; # VERSION
+our $DATE = '2014-07-02'; # DATE
 
 1;
 # ABSTRACT: XPAN::Query command-line utilities
@@ -22,7 +22,7 @@ App::XPANQueryUtils - XPAN::Query command-line utilities
 
 =head1 VERSION
 
-This document describes version 0.01 of App::XPANQueryUtils (from Perl distribution App-XPANQueryUtils), released on 2014-06-06.
+This document describes version 0.02 of App::XPANQueryUtils (from Perl distribution App-XPANQueryUtils), released on 2014-07-02.
 
 =head1 SYNOPSIS
 
