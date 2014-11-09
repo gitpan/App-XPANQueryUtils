@@ -4,8 +4,8 @@ use 5.010001;
 use strict;
 use warnings;
 
-our $VERSION = '0.03'; # VERSION
-our $DATE = '2014-07-22'; # DATE
+our $VERSION = '0.04'; # VERSION
+our $DATE = '2014-11-09'; # DATE
 
 1;
 # ABSTRACT: XPAN::Query command-line utilities
@@ -22,7 +22,7 @@ App::XPANQueryUtils - XPAN::Query command-line utilities
 
 =head1 VERSION
 
-This document describes version 0.03 of App::XPANQueryUtils (from Perl distribution App-XPANQueryUtils), released on 2014-07-22.
+This document describes version 0.04 of App::XPANQueryUtils (from Perl distribution App-XPANQueryUtils), released on 2014-11-09.
 
 =head1 SYNOPSIS
 
@@ -54,11 +54,11 @@ feature.
 
 =head1 AUTHOR
 
-Steven Haryanto <stevenharyanto@gmail.com>
+perlancar <perlancar@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Steven Haryanto.
+This software is copyright (c) 2014 by perlancar@cpan.org.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

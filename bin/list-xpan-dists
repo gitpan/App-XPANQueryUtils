@@ -1,19 +1,23 @@
 #!perl
 
-use 5.010;
+# Note: This script is a CLI interface to Riap function /XPAN/Query/list_xpan_dists
+# and generated automatically using Dist::Zilla::Plugin::Rinci::ScriptFromFunc version 0.02
+
+our $DATE = '2014-11-09'; # DATE
+our $VERSION = '0.04'; # VERSION
+
+use 5.010001;
 use strict;
 use warnings;
 
-use Perinci::CmdLine::Any;
+use Perinci::CmdLine::Any -prefer_lite=>1;
 
-our $DATE = '2014-07-22'; # DATE
-our $VERSION = '0.03'; # VERSION
+Perinci::CmdLine::Any->new(
+    url => "/XPAN/Query/list_xpan_dists",
+)->run;
 
-Perinci::CmdLine::Any->new(url => "/XPAN/Query/list_xpan_dists")->run;
-
-1;
-#ABSTRACT: List {CPAN,MiniCPAN,DarkPAN} distributions
-#PODNAME: list-xpan-dists
+# ABSTRACT: List distributions in {CPAN,MiniCPAN,DarkPAN} mirror
+# PODNAME: list-xpan-dists
 
 __END__
 
@@ -23,45 +27,49 @@ __END__
 
 =head1 NAME
 
-list-xpan-dists - List {CPAN,MiniCPAN,DarkPAN} distributions
+list-xpan-dists - List distributions in {CPAN,MiniCPAN,DarkPAN} mirror
 
 =head1 VERSION
 
-This document describes version 0.03 of list-xpan-dists (from Perl distribution App-XPANQueryUtils), released on 2014-07-22.
+This document describes version 0.04 of list-xpan-dists (from Perl distribution App-XPANQueryUtils), released on 2014-11-09.
 
 =head1 SYNOPSIS
 
-List all distributions:
+Usage:
 
- % list-xpan-dists /cpan
+ % list-xpan-dists
 
-Grep by distribution name, return detailed record:
+Examples:
 
- % list-xpan-dists /cpan task-belike-sharyanto --detail
- .-----------------------------------------------------------------------------------------------------------------.
- | author      file                                                name                                    version |
- |                                                                                                                 |
- | SHARYANTO   Task-BeLike-SHARYANTO-Favorited-0.05.tar.gz         Task-BeLike-SHARYANTO-Favorited            0.05 |
- | SHARYANTO   Task-BeLike-SHARYANTO-Devel-0.06.tar.gz             Task-BeLike-SHARYANTO-Devel                0.06 |
- | SHARYANTO   Task-BeLike-SHARYANTO-Spec-0.03.tar.gz              Task-BeLike-SHARYANTO-Spec                 0.03 |
- | SHARYANTO   Task-BeLike-SHARYANTO-Patches-0.06.tar.gz           Task-BeLike-SHARYANTO-Patches              0.06 |
- | SHARYANTO   Task-BeLike-SHARYANTO-Apps-0.12.tar.gz              Task-BeLike-SHARYANTO-Apps                 0.12 |
- | SHARYANTO   Task-BeLike-SHARYANTO-Authored-0.20.tar.gz          Task-BeLike-SHARYANTO-Authored             0.20 |
- | SHARYANTO   Task-BeLike-SHARYANTO-Noted-0.03.tar.gz             Task-BeLike-SHARYANTO-Noted                0.03 |
- | SHARYANTO   Task-BeLike-SHARYANTO-AutomatedUpdate-0.01.tar.gz   Task-BeLike-SHARYANTO-AutomatedUpdate      0.01 |
- `-----------------------------------------------------------------------------------------------------------------'
+ TODO
 
-Filter by author, return JSON:
-
- % list-xpan-dists /cpan --author sharyanto --json
-
-Show all available options:
+To see all options:
 
  % list-xpan-dists --help
 
-=head1 SEE ALSO
+=head1 DESCRIPTION
 
-L<XPAN::Query>
+For simplicity and performance, this module parses distribution names from
+tarball filenames mentioned in C<02packages.details.txt.gz>, so it is not perfect
+(some release tarballs, especially older ones, are not properly named). For more
+proper way, one needs to read the metadata file (C<*.meta>) for each
+distribution.
+
+=head1 OPTIONS
+
+ TODO
+
+=head1 BASH COMPLETION
+
+This script has bash completion capability.
+
+To activate bash completion for this script, put:
+
+ complete -C list-xpan-dists list-xpan-dists
+
+in your bash startup (e.g. C<~/.bashrc>). Your next shell session will then recognize tab completion for the command. Or, you can also directly execute the line above in your shell to activate immediately.
+
+You can also install L<App::BashCompletionProg> which makes it easy to add completion for Perinci::CmdLine-based scripts. Just execute C<bash-completion-prog> and the C<complete> command will be added in your C<~/.bash-completion-prog>. Your next shell session will then recognize tab completion for the command.
 
 =head1 HOMEPAGE
 
@@ -81,11 +89,11 @@ feature.
 
 =head1 AUTHOR
 
-Steven Haryanto <stevenharyanto@gmail.com>
+perlancar <perlancar@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Steven Haryanto.
+This software is copyright (c) 2014 by perlancar@cpan.org.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
